@@ -259,18 +259,20 @@ def save_country(conn,country,info):
 
     # préparation de la commande SQL
     c = conn.cursor()
-    sql = 'INSERT OR REPLACE INTO countries VALUES (?, ?, ?, ?, ?,?,?,?)'
+    sql = 'INSERT OR REPLACE INTO countries VALUES (?, ?, ?, ?, ?,?,?,?,?)'
 
     # les infos à enregistrer
     name = get_name(info)
+    print(name)
     capital = get_capital(info)
     leadertitle = get_leadertitle(info)
     leadername = get_leadername(info)
     currency = get_currency(info)
     coords = get_coords(info)
+    flag = country[0:-5]
 
     # soumission de la commande (noter que le second argument est un tuple)
-    c.execute(sql,(country, name, capital, leadertitle,leadername,currency,coords['lat'],coords['lon']))
+    c.execute(sql,(country, name, capital, leadertitle,leadername,currency,coords['lat'],coords['lon'],flag))
     conn.commit()
     
 with ZipFile('{}.zip'.format('asia'),'r') as z:
