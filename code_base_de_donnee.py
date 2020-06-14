@@ -250,8 +250,60 @@ def get_currency(wp_info):
     print(' Could not fetch country currency {}'.format(get_name(wp_info)))
     return None
 
+def get_area(wp_info):
+    #cas particuliers (ne respectent pas la convention de notations des nombres)
+    if 'common_name' in wp_info and wp_info['common_name'] == 'Azerbaijan':
+        return '86,600'
+    
+    if 'common_name' in wp_info and wp_info['common_name'] == 'Jordan':
+        return '89,342'
+    
+    if 'common_name' in wp_info and wp_info['common_name'] == 'Lebanon':
+        return '10,452'
+    
+    if 'common_name' in wp_info and wp_info['common_name'] == 'Russia':
+        return '17,098,246'
+    
+    if 'common_name' in wp_info and wp_info['common_name'] == 'Syria':
+        return '185,180'
+    
+    #cas particulier (proposé deux superficies)
+    if 'common_name' in wp_info and wp_info['common_name'] == 'Israel':
+        return '22,145'
+    
+    #cas général
+    if 'area_km2' in wp_info:
+        return wp_info['area_km2']
+    
+    print(' Could not fetch country area {}'.format(get_name(wp_info)))
+    
+    
+def get_population_density(wp_info):
+    #cas particuliers
+    if 'common_name' in wp_info and wp_info['common_name'] == 'Cyprus':
+        return '123.4'
+    
+    if 'common_name' in wp_info and wp_info['common_name'] == 'India':
+        return '413.21'
+    
+    if 'common_name' in wp_info and wp_info['common_name'] == 'Israel':
+        return '445.26'
+    
+    if 'common_name' in wp_info and wp_info['common_name'] == 'Vietnam':
+        return '276.03'
+    
+    #cas général
+    if 'population_density_km2' in wp_info:
+        return wp_info['population_density_km2']
+    
+    print(' Could not fetch country population density {}'.format(get_name(wp_info)))
+    
 
+with ZipFile('{}.zip'.format('asia'),'r') as z:
+    for name in z.namelist():
+        print(get_population_density(get_zip_info(name)))
         
+
 import sqlite3
 conn = sqlite3.connect('pays.sqlite')
 
@@ -259,7 +311,7 @@ def save_country(conn,country,info):
 
     # préparation de la commande SQL
     c = conn.cursor()
-    sql = 'INSERT OR REPLACE INTO countries VALUES (?, ?, ?, ?, ?,?,?,?)'
+    sql = 'INSERT OR REPLACE INTO countries VALUES (?, ?, ?, ?, ?,?,?,?,?,?)'
 
     # les infos à enregistrer
     name = get_name(info)
@@ -268,9 +320,11 @@ def save_country(conn,country,info):
     leadername = get_leadername(info)
     currency = get_currency(info)
     coords = get_coords(info)
+    area = get_area(info)
+    pop_density = get_population_density(info)
 
     # soumission de la commande (noter que le second argument est un tuple)
-    c.execute(sql,(country, name, capital, leadertitle,leadername,currency,coords['lat'],coords['lon']))
+    c.execute(sql,(country, name, capital, leadertitle,leadername,currency,coords['lat'],coords['lon'],area,pop_density))
     conn.commit()
     
 with ZipFile('{}.zip'.format('asia'),'r') as z:
