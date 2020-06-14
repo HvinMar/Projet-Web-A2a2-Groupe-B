@@ -182,16 +182,11 @@ def get_leadername(wp_info):
     
     # cas général
     if 'leader_name1' in wp_info:
-        
-        # parfois l'information récupérée comporte plusieurs lignes
-        # on remplace les retours à la ligne par un espace
+    
         leader_name1 = wp_info['leader_name1'].replace('\n',' ')
         
-        # le nom de la capitale peut comporter des lettres, des espaces,
-        # ou l'un des caractères ',.()|- compris entre crochets [[...]]
         m = re.match(".*?\[\[([\w\s',(.)|-]+)\]\]", leader_name1)
         
-        # on récupère le contenu des [[...]]
         leader_name1 = m.group(1)
         ln = leader_name1.split('|')
         
@@ -208,15 +203,10 @@ def get_leadertitle(wp_info):
     # cas général
     if 'leader_title1' in wp_info:
         
-        # parfois l'information récupérée comporte plusieurs lignes
-        # on remplace les retours à la ligne par un espace
         leader_title1 = wp_info['leader_title1'].replace('\n',' ')
         
-        # le nom de la capitale peut comporter des lettres, des espaces,
-        # ou l'un des caractères ',.()|- compris entre crochets [[...]]
         m = re.match(".*?\[\[([\w\s',:(.)|-]+)\]\]", leader_title1)
         
-        # on récupère le contenu des [[...]]
         leader_title1 = m.group(1)
         lt = leader_title1.split('|')
         
@@ -311,10 +301,12 @@ def save_country(conn,country,info):
 
     # préparation de la commande SQL
     c = conn.cursor()
-    sql = 'INSERT OR REPLACE INTO countries VALUES (?, ?, ?, ?, ?,?,?,?,?,?)'
+
+    sql = 'INSERT OR REPLACE INTO countries VALUES (?, ?, ?, ?, ?,?,?,?,?,?,?)'
 
     # les infos à enregistrer
     name = get_name(info)
+    print(name)
     capital = get_capital(info)
     leadertitle = get_leadertitle(info)
     leadername = get_leadername(info)
@@ -322,9 +314,11 @@ def save_country(conn,country,info):
     coords = get_coords(info)
     area = get_area(info)
     pop_density = get_population_density(info)
+    flag = country[0:-5]
 
     # soumission de la commande (noter que le second argument est un tuple)
-    c.execute(sql,(country, name, capital, leadertitle,leadername,currency,coords['lat'],coords['lon'],area,pop_density))
+    c.execute(sql,(country, name, capital, leadertitle,leadername,currency,coords['lat'],coords['lon'],flag,area,pop_density))
+
     conn.commit()
     
 with ZipFile('{}.zip'.format('asia'),'r') as z:

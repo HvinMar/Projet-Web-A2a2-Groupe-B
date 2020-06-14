@@ -1,0 +1,102 @@
+/* Fond de page */
+body {
+  background-image: url('/images/background.jpg');
+  background-size: 100%;
+  background-repeat: repeat;
+  position: center;
+  color: white;
+  height: 100vh;
+  margin: 0;
+  /* pour éviter l'ascenseur */
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Bandeau de titre */
+h1 {
+  text-align: center;
+  color: white;
+  border: none;
+  box-shadow: none;
+  background-color: rgba(0,0,0,0.3);
+  border-top: 3px solid rgba(255,255,0,1.0);
+  border-bottom: 3px solid rgba(255,255,0,1.0);
+  margin-top: 1.33em;
+  text-shadow: 3px 3px 3px black;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1.33em;
+}
+
+/* Polices de caractères */
+body { font-family: Trebuchet MS, sans-serif; }
+
+/* Positionnement des champs */
+p {
+  display: inline-block;
+  float: center;
+  width: 20vw;
+}
+
+label {
+  display: inline-block;
+  float: center;
+  width: 10vw;
+  text-align: right;
+  vertical-align: middle;
+}
+
+span {
+  display: inline-block;
+  float: center;
+  width: 12vw;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.colon {
+  width: auto;
+}
+
+a {
+  color: #333;
+}
+
+/* Mise en forme des différentes sections */
+
+#content {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#map {
+  display: inline-block;
+  float: left;
+  height: 75vh;
+  width: 60vw;
+  margin-left: 1vw;
+
+  border-radius: 10px;
+  border: 3px solid rgba(255,255,0,1.0);
+}
+
+#desc {
+  display: inline-block;
+  float: left;
+  position: center;
+  height: 75vh;
+  width: 30vw;
+  margin-right: 1vw;
+
+  color: rgba(0,0,0,1.0);
+  border: none;
+  border-radius: 10px;
+  box-shadow: none;
+  background-color: rgba(255,255,255,0.8);
+  border: 3px solid rgba(255,255,0,1.0);
+}
+
+.flag {
+  width: 15vw;
+}
