@@ -4,7 +4,7 @@ import sqlite3
 from urllib.parse import urlparse, parse_qs, unquote
 import json
 
-port = 8093
+port = 8090
 print('port = ',port)
 
 def load_data():

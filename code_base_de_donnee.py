@@ -65,7 +65,7 @@ def get_capital(wp_info):
     
     #cas particulier
     if 'common_name' in wp_info and wp_info['common_name'] == 'Palestine':
-        return 'Ramallah'
+        return 'Jérusalem-Est (proclamée), Ramallah (de facto)'
         
     # Aveu d'échec, on ne doit jamais se retrouver ici
     print(' Could not fetch country capital {}'.format(wp_info))
@@ -315,7 +315,6 @@ def save_country(conn,country,info):
     area = get_area(info)
     pop_density = get_population_density(info)
     flag = country[0:-5]
-    if name == 'Georgia': flag = 'Georgia'
     address = "/flags/{}.png".format(flag)
 
     # soumission de la commande (noter que le second argument est un tuple)
