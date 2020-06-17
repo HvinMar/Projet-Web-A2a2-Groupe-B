@@ -65,7 +65,7 @@ def get_capital(wp_info):
     
     #cas particulier
     if 'common_name' in wp_info and wp_info['common_name'] == 'Palestine':
-        return 'Jérusalem-Est (proclamée), Ramallah (de facto)'
+        return 'Ramallah'
         
     # Aveu d'échec, on ne doit jamais se retrouver ici
     print(' Could not fetch country capital {}'.format(wp_info))
