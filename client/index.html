@@ -18,7 +18,7 @@
 
   <!-- Zone pour l'affichage dynamique des descriptions -->
   <div id="desc">
-    <h2> Bienvenue sur notre site ! </h2>
+    <h2> Bienvenue! </h2>
     <p>
     	Cliquez sur un marqueur pour obtenir plus d'informations sur un pays.
     </p>
@@ -103,9 +103,6 @@ function onMarkerClick (e) {
     + "<label for='country'> Official name </label><span class='colon'>&nbsp;:&nbsp;</span>"
     + "<span name='country'>" + data.name.replace(/_/g, ' ') + "</a></span>"
     + "<br/>"
-    + "<label for='area'> Area </label><span class='colon'>&nbsp;:&nbsp;</span>"
-    + "<span name='area'>" + data.area_km + " km<sup>2</sup>" +  "</a></span>"
-    + "<br/>"
     + "<label for='capital'> Capital </label><span class='colon'>&nbsp;:&nbsp;</span>"
     + "<span name='capital'>" + data.capital + "</a></span>"
     + "<br/>"
@@ -120,6 +117,9 @@ function onMarkerClick (e) {
     + "<br/>"
     + "<label for='densite'> Population Density </label><span class='colon'>&nbsp;:&nbsp;</span>"
     + "<span name='densite'>" + data.population_density + " hab/km<sup>2</sup>" +  "</a></span>"
+    + "<br/>"
+    + "<label for='area'> Area </label><span class='colon'>&nbsp;:&nbsp;</span>"
+    + "<span name='area'>" + data.area_km + " km<sup>2</sup>" +  "</a></span>"
     + "<br/>"
     + "<br/>"    
     + "<img class='flag' src='" + data.address + "'alt='flag'>";
