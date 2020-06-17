@@ -1,10 +1,9 @@
-/* Fond de page */
+/* Backgroud */
 body {
   background-image: url('/images/background.jpg');
   background-size: 100%;
   background-repeat: repeat;
   position: center;
-  color: white;
   height: 100vh;
   margin: 0;
   /* pour éviter l'ascenseur */
@@ -13,17 +12,17 @@ body {
   text-align: center;
 }
 
-/* Bandeau de titre */
+/* Title */
 h1 {
   text-align: center;
-  color: white;
-  border: none;
+  color: rgb(255, 30, 0);
+  border: none
   box-shadow: none;
   background-color: rgba(0,0,0,0.3);
-  border-top: 3px solid rgba(255,255,0,1.0);
-  border-bottom: 3px solid rgba(255,255,0,1.0);
+  border-top: 3px solid rgb(255, 30, 0);
+  border-bottom: 3px solid rgb(255, 30, 0);
   margin-top: 1.33em;
-  text-shadow: 3px 3px 3px black;
+  /* text-shadow: 3px 3px 3px black; */
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   margin-bottom: 1.33em;
@@ -77,8 +76,8 @@ a {
   width: 60vw;
   margin-left: 1vw;
 
-  border-radius: 10px;
-  border: 3px solid rgba(255,255,0,1.0);
+  /* border-radius: 10px; */
+  border: 3px solid rgb(255, 30, 0);
 }
 
 #desc {
@@ -91,10 +90,10 @@ a {
 
   color: rgba(0,0,0,1.0);
   border: none;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   box-shadow: none;
-  background-color: rgba(255,255,255,0.8);
-  border: 3px solid rgba(255,255,0,1.0);
+  background-color: rgb(255, 30, 0);
+  border: 3px solid rgb(255, 30, 0);
 }
 
 .flag {

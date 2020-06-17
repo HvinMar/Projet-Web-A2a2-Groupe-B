@@ -302,7 +302,7 @@ def save_country(conn,country,info):
     # préparation de la commande SQL
     c = conn.cursor()
 
-    sql = 'INSERT OR REPLACE INTO countries VALUES (?, ?, ?, ?, ?,?,?,?,?,?,?)'
+    sql = 'INSERT OR REPLACE INTO countries VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
 
     # les infos à enregistrer
     name = get_name(info)
@@ -315,9 +315,10 @@ def save_country(conn,country,info):
     area = get_area(info)
     pop_density = get_population_density(info)
     flag = country[0:-5]
+    address = "/flags/{}.png".format(flag)
 
     # soumission de la commande (noter que le second argument est un tuple)
-    c.execute(sql,(country, name, capital, leadertitle,leadername,currency,coords['lat'],coords['lon'],flag,area,pop_density))
+    c.execute(sql,(country, name, capital, leadertitle,leadername,currency,coords['lat'],coords['lon'],flag,area,pop_density,address))
 
     conn.commit()
     
