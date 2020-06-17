@@ -315,6 +315,7 @@ def save_country(conn,country,info):
     area = get_area(info)
     pop_density = get_population_density(info)
     flag = country[0:-5]
+    if name == 'Georgia': flag = 'Georgia'
     address = "/flags/{}.png".format(flag)
 
     # soumission de la commande (noter que le second argument est un tuple)
