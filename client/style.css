@@ -1,4 +1,4 @@
-﻿/* Backgroud */
+/* Backgroud */
 body {
   background-image: url('/images/background.jpg');
   background-size: 100%;
@@ -15,14 +15,12 @@ body {
 /* Title */
 h1 {
   text-align: center;
-  color: rgba(255,255,255,1.0);
+  color: rgb(255, 30, 0);
   border: none
   box-shadow: none;
   background-color: rgba(0,0,0,0.3);
-  border-top: 0px solid rgb(255, 30, 0);
-  border-bottom: 0px solid rgb(255, 30, 0);
-  border-left: 0px solid rgb(255,30,0);
-  border-right: 0px solid rgb(255,30,0);
+  border-top: 3px solid rgb(255, 30, 0);
+  border-bottom: 3px solid rgb(255, 30, 0);
   margin-top: 1.33em;
   /* text-shadow: 3px 3px 3px black; */
   padding-top: 0.5em;
@@ -31,22 +29,21 @@ h1 {
 }
 
 /* Polices de caractères */
-body { font-family: Bell MT, Cambria; }
+body { font-family: Trebuchet MS, sans-serif; }
 
 /* Positionnement des champs */
 p {
   display: inline-block;
   float: center;
-  width: 30vw;
+  width: 20vw;
 }
 
 label {
   display: inline-block;
   float: center;
-  width: 15vw;
+  width: 10vw;
   text-align: right;
   vertical-align: middle;
-  color: rgb(255,255,255);
 }
 
 span {
@@ -55,7 +52,6 @@ span {
   width: 12vw;
   text-align: left;
   vertical-align: middle;
-  color : rgb(255,255,255);
 }
 
 .colon {
@@ -63,7 +59,7 @@ span {
 }
 
 a {
-  color: rgb(255,255,255);
+  color: #333;
 }
 
 /* Mise en forme des différentes sections */
@@ -79,9 +75,9 @@ a {
   height: 75vh;
   width: 60vw;
   margin-left: 1vw;
-  border-radius: 10px 
-  border: 3px solid rgba(255,255,0,1.0)
 
+  /* border-radius: 10px; */
+  border: 3px solid rgb(255, 30, 0);
 }
 
 #desc {
@@ -93,10 +89,11 @@ a {
   margin-right: 1vw;
 
   color: rgba(0,0,0,1.0);
-  border-radius: 10px solid rgb(255,30,0);
+  border: none;
+  /* border-radius: 10px; */
   box-shadow: none;
-  background-color: rgba(89, 89, 89, 0.9);
-  border:3px solid rgba(169,169,169,1.0);
+  background-color: rgb(255, 30, 0);
+  border: 3px solid rgb(255, 30, 0);
 }
 
 .flag {
